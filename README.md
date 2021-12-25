@@ -24,7 +24,7 @@
   Este plugin foi feito para servidores <a href="https://pmmp.io">PocketMine-MP</a>, no entanto caso seja da comunidade java que cria servidores utilizando Bukkit, Spigot, Paper e mais uma infinidade de modificações do Bukkit temos <a href="#">um plugin</a> feito também para os servidores java.
 </p>
 
-
+</br>
 <h1>:inbox_tray: Atualizações?</h1>
 <p>Relaxa, <strong>correções de bugs</strong>, <strong>erros</strong> ou até mesmo <strong>suporte as versões
     futuras</strong> vão acontecer sempre que necessárias.</p>
@@ -64,6 +64,7 @@
 
 <p>3. E agora é só criar uma loja (caso não tenha) e nela já criar um produto e durante sua criação definir que ele deve
   ser ativado no servidor que havia criado anteriormente.</br>Se tiver feito tudo certo após o pagamento do produto ser aprovado ele vai ser ativado em no máximo 10 minutos se estiver utilizando a configuração padrão do plugin.
+</p>
 </br>
 
 <h1>:bulb: Funcionalidades extras?</h1>
@@ -87,7 +88,7 @@
   projeto seja assinando o plano pago ou apenas sugerindo uma alteração ou adição :smiley:.
 </p>
 
-<h2>Acompanhe a ativação</h2>
+<h2>:cd: Acompanhe a ativação</h2>
 <p align="center"><img src="https://imgur.com/w5PQVJ6.png" alt="Log da ativação de produtos"></p>
 
 <p>
