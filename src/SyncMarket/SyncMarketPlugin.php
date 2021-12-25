@@ -13,8 +13,6 @@ use SyncMarket\Utils\Bonus;
 
 class SyncMarketPlugin extends PluginBase {
 
-    const API_VERSION = 'v1';
-
     /** @var SyncMarketPlugin */
     private static $instance;
 
