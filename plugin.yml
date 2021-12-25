@@ -1,5 +1,5 @@
 name: 'SyncMarket'
-version: '0.1-A'
+version: '0.1-B'
 main: SyncMarket\SyncMarketPlugin
 author: 'SamosMC'
 api:
