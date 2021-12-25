@@ -19,7 +19,7 @@
 </br>
 
 <h1>:hammer: Por onde posso começar?</h1>
-<p>1. Crie uma conta em <a href="https://app.syncmarket.com.br/register">nosso site</a> e logo após isso já pode começar criando sua loja utilizando até mesmo um plano <strong>free</strong>:</p>
+<p>1. Crie uma conta em <a href="https://app.syncmarket.com.br/register">nosso site</a> e logo após isso já pode começar criando sua loja utilizando até mesmo um plano <strong>free</strong>, no entanto este plano <strong>não</strong> dá suporte a ativação automática:</p>
 <p align="center">
   <img src="https://imgur.com/uaInGti.png" width="300px" height="500px" alt="Painel de registro">
   <img src="https://imgur.com/DC91095.png" width="300px" height="500px" alt="Plano free">
