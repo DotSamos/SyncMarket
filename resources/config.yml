@@ -1,0 +1,123 @@
+#  ____                           __  __                  _             _   
+# / ___|   _   _   _ __     ___  |  \/  |   __ _   _ __  | | __   ___  | |_ 
+# \___ \  | | | | | '_ \   / __| | |\/| |  / _` | | '__| | |/ /  / _ \ | __|
+#  ___) | | |_| | | | | | | (__  | |  | | | (_| | | |    |   <  |  __/ | |_ 
+# |____/   \__, | |_| |_|  \___| |_|  |_|  \__,_| |_|    |_|\_\  \___|  \__|
+#          |___/    
+#  
+# By @SamosMC | https://www.syncmarket.com.br/
+
+# Boa parte das configurações aqui são customizações que você pode ativar ou desativar. Neste campos utilize
+# "true" para ativar ou "false" para desativar essa funcionalidade.
+
+# Ativar automaticamente os produtos comprados na loja?
+# Padrão: true
+enable_auto_activation: true
+
+# O token de autenticação de seu servidor.
+#
+# (Crie ou pegue seu token no menu dos servidores em <https://app.syncmarket.com.br/servers>)
+# OBS: Este campo é OBRIGATÓRIO! A ativação não é possível sem este token
+server_token: '**********-****-****-****-************'
+
+# Logs do sistema
+logs:
+
+  # Zona de tempo que será utilizado na marca do registro de horário do evento na log
+  # Você pode ver todas as possibilidades em <https://www.php.net/manual/pt_BR/timezones.php>
+  time_zone: 'America/Sao_Paulo'
+
+  # Em raros casos este sistema pode gerar lag, caso venha a enfrentar problemas como esse devido ao uso
+  # do plugin contate nossa equipe em <https://syncmarket.com.br> para resolvermos isso o mais rápido possível.
+
+  # Gerar log de ativações dos produtos?
+  #
+  # Na pasta de configurações do plugin será gerado o sub-diretório '/logs' que por sua vez
+  # vão conter arquivos de log separados por dia contendo informações sobre a ativação de produtos
+  # feita no dia.
+  generate_activation_log: true
+
+  # Gerar log de debug?
+  #
+  # Se você é desenvolvedor e pretende trabalhar com a api no plugin é recomendado ativar a log de debug, afinal
+  # ela contem informações que lhe podem ser uteis para debugar seu código, por exemplo erros durante as
+  # requisições
+  # Por padrão deixamos desativado, pois a maioria dos usuarios não precisa saber deste tipo de informação
+  generate_debug_log: false
+
+# Configurações do sistema assincrono
+# 
+# Todas as requisições feitas para verificar produtos pendentes para ativação são realizadas em Threads separadas
+# da principal do servidor, isso proporciona uma fluidez melhor durante a execução do servidor.
+async:
+
+  # Se não souber o que está fazendo não mexa aqui
+
+  # Tamanho da fila de requisições de atualização da lista dos produtos
+  # 
+  # Supondo que seu servidor tenha 60 jogadores online o sistema vai partir estes 60 em 6 grupos e cada um desses grupos
+  # vão ser processados separadamente para reduzir o tempo de execução e custo de processamento.
+  # Em raros casos pode ser necessário aumentar o tamanho da fila, isso pode deixar o sistema mais rápido para fazer a ativação
+  # em tempo real do produto, no entanto isso pode gerar um custo maior de processamento. 
+  #
+  # ATENÇÃO
+  # Mesmo que seu servidor não tenha nenhum plugin que utilize a nossa api neste plugin ela está em constante funcionamento
+  # chamando os eventos e processando os dados destes para prosseguir com o sistema, no entanto o PocketMine tem um limite
+  # de mesmos eventos chamados por segundo, esse limite fica próximo de 50, desta forma o número que por na fila de
+  # preferência deve ser menor que ele para assim evitar erros. Minha recomendação é que deixe o tamanho da fila de 10 a 20 e
+  # o check_after_minutes em 2, minha estimativa é que o sistema vai ativar todos os produtos que tenham para serem ativados
+  # para os jogadores online em no minimo 10 minutos (isso para um servidor com 60 jogadores online)
+  queue_length: 10
+
+  # Checar a cada x minutos os produtos que precisam ser ativados
+  #
+  # Nossa api tem um timeout de atualização de 1 minuto, então diminuir o tempo de verificação para 1 minuto ou menos vai ser
+  # apenas gasto de processamento atoa
+  check_after_minutes: 2
+
+# Notificações/Alertas de ativação de produtos
+activation_notification:
+
+  # Enviar avisos/notificações de ativação para os jogadores online?
+  enable: true
+
+  # Modo de notificação
+  # 0 - Title global 
+  # 1 - Mensagem global
+  notification_mode: 0
+
+  # Notificação no formato de title global
+  notification_title:
+    # Título
+    title: '§f%player%'
+
+    # Sub-título
+    sub-title: '§6comprou um produto em nossa loja!'
+
+  # Notificação em formato de mensagem global
+  notification_message: 
+    - '§8'
+    - '§f%player% §eacaba de comprar um novo produto em nossa loja!'
+    - '§bNão perca tempo e adquira seu vip, cash e caixas em §fhttps://www.syncmarket.com.br/SamosMC'
+    - '§8'
+
+  # Notificação enviada via action-bar para o dono do produto ativado
+  owner_notification: '§aObrigado por comprar conosco! Seu produto foi entregue.'
+
+# Um presentinho para incentivar os jogadores a comparem itens na loja
+bonus:
+
+  # Enviar presentes para todos os jogadores após uma compra ser ativada na loja?
+  enable: true
+
+  # Mensagem global para todos que vão receber presente/bonus
+  global_message: 
+    - '§aDevido a compra de §f%player%§a você acaba de ser presenteado(a) com uma incrível PEDRA!'
+
+  # Comando que é executado no terminal do servidor para dar presentes aos jogadores
+  # LEMBRANDO: %online% vai ser substituido pelo nick do jogador online, desta forma o comando vai ser executado para
+  # **cada** um dos jogadores online
+  ex_console_command: 'give %online% stone'
+
+
+# © 2021 - SyncMarket ltda. | Todos os direitos reservados
