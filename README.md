@@ -92,7 +92,7 @@
 <p align="center"><img src="https://imgur.com/w5PQVJ6.png" alt="Log da ativação de produtos"></p>
 
 <p>
-  Além de termos uma log para os desenvolvedores acompanharem e verem qualquer erro que o sistema possa ter nas requisições temos uma outra log <strong>especialmente feita</strong> para registras a <strong>ativação dos produtos</strong>, desta forma você sempre vai ter o controle sobre quando e para quem um determinado produto foi ativado. E não pense que essas logs vão ficar <strong>bagunçadas</strong>, cada arquivo de log contém apenas as ocorrências daquele <strong>determinado dia</strong>, então produtos ativados no dia "x" estão no arquivo "x.log" e os produtos ativados no dia "y" no arquivo "y.log".
+  Além de termos uma log para os desenvolvedores acompanharem e verem qualquer erro que o sistema possa ter nas requisições temos uma outra log <strong>especialmente feita</strong> para registrar a <strong>ativação dos produtos</strong>, desta forma você sempre vai ter o controle sobre quando e para quem um determinado produto foi ativado. E não pense que essas logs vão ficar <strong>bagunçadas</strong>, cada arquivo de log contém apenas as ocorrências daquele <strong>determinado dia</strong>, então produtos ativados no dia "x" estão no arquivo "x.log" e os produtos ativados no dia "y" no arquivo "y.log".
 </p>
 
 </br>
