@@ -33,9 +33,6 @@ abstract class MarketAsyncTask extends AsyncTask {
     /** @var int */
     protected $method;
 
-    /** @var CurlHandle|null */
-    protected $connection;
-
     /** @var int|null */
     protected $statusCode;
 
@@ -96,24 +93,30 @@ abstract class MarketAsyncTask extends AsyncTask {
 
     public function request() {
 
-        $this->connection = $this->makeBaseConnection();
+        $con = $this->makeBaseConnection();
+
+        /*
+            É curioso ver que desde a 1.16 até a 1.18 o sistema assíncrono serializa até as 
+            propriedades da classe mesmo quando elas são declaradas ao chamar a função onRun()...
+            De qualquer forma ainda bem que foi fácil de resolver :)
+        */
 
         switch($this->method) {
             case self::METHOD_GET:
-                $this->reqGet();
+                $this->reqGet($con);
                 break;
             case self::METHOD_POST:
-                $this->reqPost();
+                $this->reqPost($con);
                 break;
 
             case self::METHOD_PUT:
-                $this->reqPut();
+                $this->reqPut($con);
                 break;
         }
     }
 
-    public function executeRequest() {
-        $con = $this->connection;
+    /** @param CurlHandle $con */
+    public function executeRequest(CurlHandle $con) {
         $result = curl_exec($con);
         if(!$result) throw new Exception('Requisição falha: '.curl_error($con));
 
@@ -127,7 +130,6 @@ abstract class MarketAsyncTask extends AsyncTask {
         if(!in_array($httpCode, [200, 201, 204])) $this->handleCode($httpCode);
 
         curl_close($con);
-        $this->connection = null;
     }
 
     /** @param int $code */
@@ -181,17 +183,17 @@ abstract class MarketAsyncTask extends AsyncTask {
         return $ch;
     }
 
-    public function reqGet() {
-        $this->executeRequest();
+    public function reqGet(CurlHandle $con) {
+        $this->executeRequest($con);
     } 
 
-    public function reqPost() {
-        curl_setopt($this->connection, CURLOPT_POST, 1);
-        $this->executeRequest();
+    public function reqPost(CurlHandle $con) {
+        curl_setopt($con, CURLOPT_POST, 1);
+        $this->executeRequest($con);
     }
 
-    public function reqPut() {
-        curl_setopt($this->connection, CURLOPT_CUSTOMREQUEST, "PUT");
-        $this->executeRequest();
+    public function reqPut(CurlHandle $con) {
+        curl_setopt($con, CURLOPT_CUSTOMREQUEST, "PUT");
+        $this->executeRequest($con);
     }
 }
