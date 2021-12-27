@@ -3,6 +3,6 @@ version: '0.1-B'
 main: SyncMarket\SyncMarketPlugin
 author: 'SamosMC'
 api:
-  - 3.0.0
-  - 3.19.3
+  - 3.26.4
+  - 3.26.0
 website: 'https://www.syncmarket.com.br/ | https://twitter.com/SamosMC'
