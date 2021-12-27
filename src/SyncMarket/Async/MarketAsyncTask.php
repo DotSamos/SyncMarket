@@ -63,7 +63,7 @@ abstract class MarketAsyncTask extends AsyncTask {
         return SyncMarketPlugin::getInstance();
     }
 
-    public function onRun() {
+    public function onRun(): void {
         try {
             $this->request();
             $this->setResult(['status' => 'success']);
@@ -72,8 +72,8 @@ abstract class MarketAsyncTask extends AsyncTask {
         }
     }
 
-    /** @param Server $server */
-    public function onCompletion(Server $server) {
+    public function onCompletion(): void {
+        $server = Server::getInstance();
         $result = $this->getResult();
         $status = $result['status'];
 
