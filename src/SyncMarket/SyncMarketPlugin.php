@@ -33,13 +33,13 @@ class SyncMarketPlugin extends PluginBase {
         return self::$instance;
     }
 
-    public function onLoad() {
+    public function onLoad(): void {
         self::$instance = $this;
 
         $this->boot();
     }
 
-    public function onEnable() {
+    public function onEnable(): void {
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
         $this->getScheduler()->scheduleRepeatingTask(new UpdateSystemTask(), 20);
     }
