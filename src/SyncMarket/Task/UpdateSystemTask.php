@@ -12,8 +12,7 @@ use SyncMarket\Queue\Queue;
  */
 class UpdateSystemTask extends Task {
 
-    /** @param int $currentTick */
-    public function onRun(int $currentTick) {
+    public function onRun(): void {
         Queue::onUpdate(); // atualizar os produtos em cache
     }
 }
