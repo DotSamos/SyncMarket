@@ -71,15 +71,15 @@ class Queue {
     /** @return bool */
     public static function canUpdateGroup(): bool {
         $cooldown = SyncMarketPlugin::getInstance()->getConfig()->getNested('async.check_after_minutes');
-        #return microtime(true) - self::$updateTime >= ($cooldown * 60);
-        return microtime(true) - self::$updateTime >= 20;
+        return microtime(true) - self::$updateTime >= ($cooldown * 60);
+        #return microtime(true) - self::$updateTime >= 20; // para atualizar os grupos a cada 20 segundos (apenas para testes)
     }
 
     public static function updateGroup() {
 
         $group = self::$groups[self::$nextUpdateKey];
         if($group->count() < 1) {
-            Log::$debug->debug('[Queue] Não existe ninguem no grupo a ser atualizado. Reagendando atualização e passando para o próximo grupo...');
+            Log::$debug->debug('[Queue] Não existe ninguém no grupo a ser atualizado. Reagendando atualização e passando para o próximo grupo...');
             self::renewUpdate();
             return;
         }
