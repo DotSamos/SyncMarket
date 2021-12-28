@@ -1,0 +1,6 @@
+name: 'SyncMarket'
+version: '0.1-B'
+main: SyncMarket\SyncMarketPlugin
+author: 'SamosMC'
+api: 4.0.0
+website: 'https://www.syncmarket.com.br/ | https://twitter.com/SamosMC'
