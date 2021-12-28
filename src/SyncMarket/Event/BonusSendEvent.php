@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SyncMarket\Event;
 
 use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
 use pocketmine\Player;
 use pocketmine\Server;
 use SyncMarket\Queue\QueuePlayer;
@@ -15,6 +16,8 @@ use SyncMarket\Queue\Shop\ShopProduct;
  * Por aqui é possível interagir com a lista de jogadores que vão receber o bônus e claro, setar novamente essa lista
  */
 class BonusSendEvent extends ProductEvent implements Cancellable {
+
+    use CancellableTrait;
 
     /** @var Player[] */
     protected $players = [];

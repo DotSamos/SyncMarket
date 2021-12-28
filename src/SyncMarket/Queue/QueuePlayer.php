@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SyncMarket\Queue;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\Server;
 use SyncMarket\Queue\Shop\ProductShelf;
 
@@ -39,7 +39,7 @@ class QueuePlayer {
 
     /** @return Player|null */
     public function getPlayer(): ?Player {
-        return Server::getInstance()->getPlayer($this->name);
+        return Server::getInstance()->getPlayerByPrefix($this->name);
     }
 
     /** @return bool */

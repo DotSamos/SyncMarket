@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SyncMarket\Event;
 
 use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
 use pocketmine\event\Event;
 use SyncMarket\Queue\QueuePlayer;
 use SyncMarket\Queue\Shop\ShopProduct;
@@ -21,5 +22,7 @@ use SyncMarket\Queue\Shop\ShopProduct;
  * de ativação do produto em cache.
  */
 class ActiveProductEvent extends ProductEvent implements Cancellable {
+
+    use CancellableTrait;
 
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SyncMarket\Event;
 
 use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
 use pocketmine\event\Event;
 use SyncMarket\Queue\QueuePlayer;
 use SyncMarket\Queue\Shop\ShopProduct;
@@ -15,6 +16,8 @@ use SyncMarket\Queue\Shop\ShopProduct;
  * pode interagir com os novos produtos e setar ela em seguida.
  */
 class UpdateShelfEvent extends Event implements Cancellable {
+
+    use CancellableTrait;
 
     /** @var QueuePlayer */
     protected $player;

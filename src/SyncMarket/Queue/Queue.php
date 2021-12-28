@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SyncMarket\Queue;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 use SyncMarket\Async\MarketAsyncFaucet;
 use SyncMarket\Log\Log;
 use SyncMarket\SyncMarketPlugin;

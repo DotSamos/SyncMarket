@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SyncMarket\Utils;
 
-use pocketmine\command\ConsoleCommandSender;
-use pocketmine\Player;
+use pocketmine\console\ConsoleCommandSender;
+use pocketmine\lang\Language;
 use pocketmine\Server;
 use SyncMarket\SyncMarketPlugin;
 
@@ -44,7 +44,7 @@ class Bonus {
         $message = implode("§r\n", self::getConfig()->global_message);
         $message = str_replace('%player%', $by, $message);
 
-        $sender = new ConsoleCommandSender();
+        $sender = new ConsoleCommandSender(Server::getInstance(), new Language(Language::FALLBACK_LANGUAGE));
         foreach($to as $p) {
             $p->sendMessage($message);
             Server::getInstance()->getCommandMap()->dispatch($sender, str_replace('%online%', $p->getName(), self::getConfig()->ex_console_command));

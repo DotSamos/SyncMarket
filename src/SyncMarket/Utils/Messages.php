@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SyncMarket\Utils;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\Server;
 use pocketmine\utils\Config;
 use SyncMarket\SyncMarketPlugin;
@@ -39,7 +39,7 @@ class Messages {
         $args = [];
         switch($config->getNested('activation_notification.notification_mode')) {
             case 0:
-                $method = 'addTitle';
+                $method = 'sendTitle';
                 $args = array_map($formatMessage, $config->getNested('activation_notification.notification_title'));
                 break;
             case 1:

@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace SyncMarket\Queue\Shop;
 
-use pocketmine\command\ConsoleCommandSender;
+use pocketmine\console\ConsoleCommandSender;
 use pocketmine\item\Item;
+use pocketmine\lang\Language;
 use pocketmine\Server;
 use SyncMarket\Async\MarketAsyncFaucet;
 use SyncMarket\Event\ActiveProductEvent;
@@ -149,7 +150,8 @@ class ShopProduct {
         if($ev->isCancelled()) return;
 
         $log = ['[Product] Ativando produto...'];
-        Server::getInstance()->getCommandMap()->dispatch(new ConsoleCommandSender(), $this->exCommand);
+        $sender = new ConsoleCommandSender(Server::getInstance(), new Language(Language::FALLBACK_LANGUAGE));
+        Server::getInstance()->getCommandMap()->dispatch($sender, $this->exCommand);
         $log[] = " 1. Comando executado (em terminal): {$this->exCommand}";
 
         $log[] = ' 2. Definindo status do produto para entregue...';
