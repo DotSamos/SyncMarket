@@ -10,7 +10,7 @@
 
 <h1>:pushpin: Como funciona?</h1>
 <p>
-  O plugin foi faz requisições para a api de compras do site e procura pelas compras feitas na última hora, desta forma
+  O plugin faz requisições para a api de compras do site e procura pelas compras feitas na última hora, desta forma
   o sistema filtra as compras que já tiveram seu pagamento aprovado e faz uma validação seguindo a regra de negócio para
   decidir se aquele produto pode ser ativado ou não, caso ele seja ativado vai executar o comando configurado no site
   para ativação do produto e uma vez isto realizado vai notificar o site que o produto foi ativado, assim atualizando o
